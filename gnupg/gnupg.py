@@ -159,7 +159,8 @@ class GPG(GPGBase):
 
         # Make sure that the trustdb exists, or else GnuPG will exit with a
         # fatal error (at least it does with GnuPG>=2.0.0):
-        self.create_trustdb()
+        if not '--no-auto-check-trustdb' in self.options:
+            self.create_trustdb()
 
     @functools.wraps(_trust._create_trustdb)
     def create_trustdb(self):
