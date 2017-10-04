@@ -946,7 +946,7 @@ class Sign(object):
         """
         if key in ("USERID_HINT", "NEED_PASSPHRASE", "BAD_PASSPHRASE",
                    "GOOD_PASSPHRASE", "MISSING_PASSPHRASE", "PINENTRY_LAUNCHED",
-                   "BEGIN_SIGNING", "CARDCTRL", "INV_SGNR", "SIGEXPIRED"):
+                   "BEGIN_SIGNING", "CARDCTRL", "INV_SGNR", "SIGEXPIRED", "KEY_CONSIDERED"):
             self.status = key.replace("_", " ").lower()
         elif key == "SIG_CREATED":
             (self.sig_type, self.sig_algo, self.sig_hash_algo,
@@ -1288,7 +1288,7 @@ class Verify(object):
         elif key in ("RSA_OR_IDEA", "NODATA", "IMPORT_RES", "PLAINTEXT",
                      "PLAINTEXT_LENGTH", "POLICY_URL", "DECRYPTION_INFO",
                      "DECRYPTION_OKAY", "INV_SGNR", "PROGRESS",
-                     "PINENTRY_LAUNCHED"):
+                     "PINENTRY_LAUNCHED", "KEY_CONSIDERED"):
             pass
         elif key == "NEWSIG":
             # Reset
